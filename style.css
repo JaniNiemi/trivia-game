@@ -74,7 +74,7 @@ body {
     border-radius: 1rem;
 }
 #answers p:hover {
-    background-color: #d9d8da;
+    background-color: #e7e7e7;
     cursor: pointer;
 }
 

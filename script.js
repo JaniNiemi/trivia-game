@@ -6,8 +6,6 @@ const category = document.querySelector("#category");
 const difficulty = document.querySelector("#difficulty");
 const answersElement = document.querySelector("#answers");
 
-let correctAnswer = "";
-
 // Fetch trivia question from api
 async function getQuestion() {
     const response = await fetch("https://opentdb.com/api.php?amount=1")
@@ -23,6 +21,7 @@ async function displayQuestion() {
 
     category.innerText = `Category: ${question.category}`;
     difficulty.innerText = `Difficulty: ${question.difficulty}`;
+    // Use innerHTML instead of innerText, some questions contain HTML entities
     questionText.innerHTML = question.question;
     correctAnswer = question.correct_answer;
 
@@ -43,7 +42,7 @@ async function displayQuestion() {
     // Assing event listener to each answer and check if answer was correct
     document.querySelectorAll(".answer").forEach(item => {
         item.addEventListener("click", event => {
-            if(event.target.innerHTML === correctAnswer) {
+            if(event.target.innerHTML === question.correct_answer) {
                 event.target.classList.add("correct");
             } else {
                 event.target.classList.add("wrong");

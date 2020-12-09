@@ -42,7 +42,7 @@ async function displayQuestion() {
     // Assing event listener to each answer and check if answer was correct
     document.querySelectorAll(".answer").forEach(item => {
         item.addEventListener("click", event => {
-            if(event.target.innerHTML === question.correct_answer) {
+            if(event.target.innerHTML === decodeHTML(question.correct_answer)) {
                 event.target.classList.add("correct");
             } else {
                 event.target.classList.add("wrong");
@@ -55,6 +55,13 @@ async function displayQuestion() {
 function toggleLoader() {
     loader.hidden = !loader.hidden;
     container.hidden = !container.hidden
+}
+
+// Decode all HTML entities into text. Questions sometimes contain HTML entities, assign it to HTML element, convert it into text
+function decodeHTML(html) {
+    let txt = document.createElement("textarea");
+    txt.innerHTML = html;
+    return txt.value;
 }
 
 // Shuffle array

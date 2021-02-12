@@ -4,6 +4,7 @@
 	padding: 0;
 	margin: 0;
     box-sizing: border-box;
+	-webkit-tap-highlight-color: transparent;
 }
 
 html {
@@ -79,7 +80,15 @@ body {
 	cursor: pointer;
 }
 
+.btn-container {
+	display: flex;
+	position: relative;
+	width: 100%;
+}
+
 button {
+	min-height: 51px;
+	min-width: 51px;
 	cursor: pointer;
 	background-color: var(--main-color);
 	color: #fdfdfd;
@@ -102,6 +111,15 @@ button:active {
 	box-shadow: 0 0.3rem 0.4rem rgba(0, 0, 0, 0.5);
 	filter: brightness(98%);
 }
+#new-question {
+	margin-left: auto;
+	margin-right: auto;
+}
+#settings-toggle {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
 
 #loader {
 	position: absolute;
@@ -119,4 +137,53 @@ button:active {
 .correct:hover {
 	background-color: green !important;
 	color: white !important;
+}
+
+/* SETTINGS */
+#settings {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	/* transform: translate(-50%, -50%); */
+	width: 600px;
+	max-width: calc(100% - 20px);
+	min-height: 500px;
+	transition: all 500ms;
+}
+#settings-form {
+	width: 100%;
+}
+
+.form-group {
+	display: flex;
+	justify-content: space-between;
+	margin: 15px 0;
+}
+.form-group label {
+	width: 100px;
+}
+.form-group select {
+	flex: 1;
+	overflow: hidden;
+}
+
+#form-submit {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#settings-return {
+	align-self: end;
+}
+
+/* Utility */
+.show {
+	visibility: visible;
+	opacity: 1;
+	transform: translate(-50%, -50%);
+}
+.hide {
+	visibility: hidden;
+	opacity: 0;
+	transform: translate(-50%, calc(-50% - 500px));
 }

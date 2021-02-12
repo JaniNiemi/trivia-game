@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Fetch favicon from another website -->
     <link rel="icon" type="image/png" href="https://www.google.com/s2/u/0/favicons?domain=jtniemi.net" />
     <!-- Font awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+        crossorigin="anonymous" />
     <link rel="stylesheet" href="style.css">
     <title>Trivia game</title>
 </head>
+
 <body>
     <!-- Question container -->
     <div id="container" class="container">
@@ -27,9 +31,79 @@
             <h2 id="question"></h2>
             <div id="answers"></div>
         </div>
-        <button id="new-question">New question</button>
+        <div class="btn-container">
+            <button id="new-question">New question</button>
+            <button id="settings-toggle"><i class="fas fa-cog"></i></button>
+        </div>
     </div>
-    
+
+    <!-- Settings container -->
+    <div class="container hide" id="settings">
+        <h1 class="title">Settings</h1>
+        <form id="settings-form">
+
+            <!-- Question category -->
+            <div class="form-group">
+                <label for="question-category">Category:</label>
+                <select name="category" id="question-category">
+                    <option value="any">Any Category</option>
+                    <option value="9">General Knowledge</option>
+                    <option value="10">Entertainment: Books</option>
+                    <option value="11">Entertainment: Film</option>
+                    <option value="12">Entertainment: Music</option>
+                    <option value="13">Entertainment: Musicals &amp; Theatres</option>
+                    <option value="14">Entertainment: Television</option>
+                    <option value="15">Entertainment: Video Games</option>
+                    <option value="16">Entertainment: Board Games</option>
+                    <option value="17">Science &amp; Nature</option>
+                    <option value="18">Science: Computers</option>
+                    <option value="19">Science: Mathematics</option>
+                    <option value="20">Mythology</option>
+                    <option value="21">Sports</option>
+                    <option value="22">Geography</option>
+                    <option value="23">History</option>
+                    <option value="24">Politics</option>
+                    <option value="25">Art</option>
+                    <option value="26">Celebrities</option>
+                    <option value="27">Animals</option>
+                    <option value="28">Vehicles</option>
+                    <option value="29">Entertainment: Comics</option>
+                    <option value="30">Science: Gadgets</option>
+                    <option value="31">Entertainment: Japanese Anime &amp; Manga</option>
+                    <option value="32">Entertainment: Cartoon &amp; Animations</option>
+                </select>
+            </div>
+
+            <!-- Question difficulty -->
+            <div class="form-group">
+                <label for="question-difficulty">Difficulty:</label>
+                <select name="difficulty" id="question-difficulty">
+                    <option value="any">Any Difficulty</option>
+                    <option value="easy">Easy</option>
+                    <option value="medium">Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
+            </div>
+
+            <!-- Question type -->
+            <div class="form-group">
+                <label for="question-type">Type:</label>
+                <select name="type" id="question-type">
+                    <option value="any">Any Type</option>
+                    <option value="multiple">Multiple Choice</option>
+                    <option value="boolean">True / False</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" id="form-submit">Confirm</button>
+            </div>
+        </form>
+
+        <button id="settings-hide">Back</button>
+    </div>
+
     <script src="script.js"></script>
 </body>
+
 </html>
